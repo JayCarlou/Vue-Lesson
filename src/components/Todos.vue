@@ -1,0 +1,31 @@
+<template>
+    <div>
+        <div v-bind:key="todo.id" v-for="todo in todos">
+            <!-- <p>{{todo.title}}</p> -->
+            <TodoItem v-bind:todo="todo" v-on:del-todo="$emit('del-todo',todo.id)" />
+        </div>
+    </div>
+</template>
+
+<script>
+//property
+
+import TodoItem from './TodoItem.vue';
+
+export default {
+    name: 'Todos',
+    components: {
+        TodoItem
+    },
+    props: ["todos"]
+    // data(){
+    //     return{
+    //         msg: "Hello Jay Carlou"
+    //     }
+    // }
+}
+</script>
+
+<style scoped>
+
+</style>
